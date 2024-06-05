@@ -1,6 +1,24 @@
-name: 'My Action'
-description: 'Descrição da minha ação'
-author: 'Juliana Camilo'
+name: 'Deploy to EC2'
+description: 'A custom action to deploy applications to EC2 instances'
+author: 'Your Name'
+
+inputs:
+  aws-access-key-id:
+    description: 'AWS Access Key ID'
+    required: true
+  aws-secret-access-key:
+    description: 'AWS Secret Access Key'
+    required: true
+  region:
+    description: 'AWS Region'
+    required: true
+  ec2-instance-id:
+    description: 'EC2 Instance ID'
+    required: true
+  deploy-script:
+    description: 'Path to the deployment script'
+    required: true
+
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: 'node12'  # or 'docker', 'composite' depending on your setup
+  main: 'dist/index.js'  # or the path to your main script file
