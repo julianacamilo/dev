@@ -34,7 +34,7 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://54.152.50.161:5000/api/login', { username, password }); // Substitua pelo seu endereço IPv4 público
+      const response = await axios.post('http://54.81.90.255:5000/api/login', { username, password }); // Substitua pelo seu endereço IPv4 público
       if (response.data.success) {
         setIsLoggedIn(true);
         alert('Login successful!');
