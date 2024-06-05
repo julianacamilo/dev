@@ -1,18 +1,6 @@
-name: CI
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Run custom action
-      uses: julianacamilo/dev@main
-      with:
-        myInput: 'Some value'
+name: 'My Action'
+description: 'Descrição da minha ação'
+author: 'Juliana Camilo'
+runs:
+  using: 'node12'
+  main: 'index.js'
