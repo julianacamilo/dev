@@ -4,7 +4,7 @@ const fs = require('fs');
 const cors = require('cors');
 
 const app = express();
-const IP_PUBLICO = '54.81.90.255'; // Substitua pelo endereço IPv4 público da sua instância AWS
+const PORT = 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -54,8 +54,6 @@ function saveUsersToFile() {
   });
 }
 
-// Defina a porta para a qual o servidor irá ouvir
-const PORT = 3001; // Substitua pela porta desejada
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
