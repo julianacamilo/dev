@@ -8,7 +8,7 @@ function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/users')
+    axios.get('http://54.152.50.161:5000/api/users') // Substitua pelo seu endereço IPv4 público
       .then(res => {
         setUsers(res.data);
       })
@@ -19,7 +19,7 @@ function App() {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/register', { username, password });
+      const response = await axios.post('http://54.152.50.161:5000/api/register', { username, password }); // Substitua pelo seu endereço IPv4 público
       if (response.data.success) {
         alert('User registered successfully!');
         setIsLoggedIn(true); // Após o registro, o usuário é redirecionado para a página de login
@@ -34,7 +34,7 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/login', { username, password });
+      const response = await axios.post('http://54.152.50.161:5000/api/login', { username, password }); // Substitua pelo seu endereço IPv4 público
       if (response.data.success) {
         setIsLoggedIn(true);
         alert('Login successful!');
