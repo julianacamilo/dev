@@ -4,7 +4,7 @@ const fs = require('fs');
 const cors = require('cors');
 
 const app = express();
-const IP_PUBLICO = '54.81.90.255'; // Substitua pelo endereço IPv4 público da sua instância AWS
+const IP_PUBLICO = '54.81.90.255:3000'; // Substitua pelo endereço IPv4 público da sua instância AWS
 
 app.use(bodyParser.json());
 app.use(cors());
