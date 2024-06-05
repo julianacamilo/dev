@@ -1,14 +1,20 @@
-name: Deploy Node
-
+name: Push-to-EC2
 on:
   push:
     branches: [main, staging]
-
 jobs:
-  build:
+  deploy:
+    name: Deploy to EC2
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - name: Checkout the files
+        uses: actions/checkout@v3
       
+      - name: Copy files with SSH
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
+          SOURCE: "./"
+          REMOTE_HOST: "ec2-54-90-78-36.compute-1.amazonaws.com"
+          REMOTE_USER: "ec2-user"
+          TARGET: "/home/ec2-user"
